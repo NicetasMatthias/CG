@@ -31,11 +31,11 @@ void Application::Control_update(Control_State cs)
     else if (cs.point_changed)
     {
         new_state.p = QPointF(cs.p_x,cs.p_y);
-        new_state.max = 5;
+        new_state.max = qMax(5.0,qMax(abs(cs.p_x),abs(cs.p_y)));
     }
     else
     {
-        new_state.max = qMax(cs.p_x,cs.p_y);
+        new_state.max = qMax(abs(cs.p_x),abs(cs.p_y));
         double angle = 2*M_PI*cs.angle/360;
         Mmatrix T (3,3);
         T.data[0][0] = cos(angle);
@@ -57,9 +57,9 @@ void Application::Control_update(Control_State cs)
             res = tmp * T;
             new_state.f[i].setX(res.data[0][0]);
             new_state.f[i].setY(res.data[0][1]);
-            if (qMax(new_state.f[i].x(),new_state.f[i].y()) > new_state.max)
+            if (qMax(abs(new_state.f[i].x()),abs(new_state.f[i].y())) > new_state.max)
             {
-                new_state.max = qMax(new_state.f[i].x(),new_state.f[i].y());
+                new_state.max = qMax(abs(new_state.f[i].x()),abs(new_state.f[i].y()));
             }
         }
         new_state.p = QPointF(cs.p_x,cs.p_y);
