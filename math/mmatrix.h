@@ -37,9 +37,6 @@ public:
     friend Mmatrix const operator* (double const&, Mmatrix const&);
     friend Mmatrix const operator+ (Mmatrix const&, Mmatrix const&);
     friend Mmatrix const operator- (Mmatrix const&, Mmatrix const&);
-    //friend Mmatrix const operator/ (Mmatrix const&, Mmatrix const&);
-
-
 };
 
 

@@ -14,9 +14,9 @@ DrawWindow::~DrawWindow()
     delete ui;
 }
 
-void DrawWindow::recive_state(State r)
+void DrawWindow::recive_state(State new_state)
 {
-    draw_state = r;
+    draw_state = new_state;
     repaint();
 }
 
@@ -78,8 +78,7 @@ void DrawWindow::paintEvent (QPaintEvent *event)
             painter.drawText(cw+2*can,ch-i*cnh,QString::number(-i));
         }
     }
-    //qreal x = cw + draw_state.p.x()/(num*2);
-    //qreal y = ch - draw_state.p.y()/(num*2);
+
 
     painter.drawEllipse(cw + draw_state.p.x()*cnw - 0.5*cr,ch - draw_state.p.y()*cnh - 0.5*cr,cr,cr);
     painter.setBrush(QBrush(Qt::transparent));
