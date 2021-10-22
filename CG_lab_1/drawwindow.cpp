@@ -74,12 +74,11 @@ void DrawWindow::paintEvent (QPaintEvent *event)
         {
             painter.drawText(cw+i*cnw,ch-2*can,QString::number(i));
             painter.drawText(cw-i*cnw,ch-2*can,QString::number(-i));
-            painter.drawText(cw+2*can,ch+i*cnh,QString::number(i));
-            painter.drawText(cw+2*can,ch-i*cnh,QString::number(-i));
+            painter.drawText(cw+2*can,ch+i*cnh,QString::number(-i));
+            painter.drawText(cw+2*can,ch-i*cnh,QString::number(i));
         }
     }
-    //qreal x = cw + draw_state.p.x()/(num*2);
-    //qreal y = ch - draw_state.p.y()/(num*2);
+
 
     painter.drawEllipse(cw + draw_state.p.x()*cnw - 0.5*cr,ch - draw_state.p.y()*cnh - 0.5*cr,cr,cr);
     painter.setBrush(QBrush(Qt::transparent));
