@@ -14,9 +14,9 @@ DrawWindow::~DrawWindow()
     delete ui;
 }
 
-void DrawWindow::recive_state(State r)
+void DrawWindow::recive_state(State new_state)
 {
-    draw_state = r;
+    draw_state = new_state;
     repaint();
 }
 
