@@ -116,7 +116,9 @@ void DrawWindow::paintEvent (QPaintEvent *event)
             }
             pen.setColor(Qt::black);
             painter.setPen(pen);
-            painter.drawText(QPointF(rx+cr,ry+cf*0.5),"P"+QString::number(i+1));
+            painter.drawText(QPointF(rx+cr,ry+cf*0.5),"P"+QString::number(i+1));            
+            pen.setColor(QColor::fromRgb(30, 144, 255));
+            painter.setPen(pen);
             painter.drawEllipse(rx-cr*0.5,ry-cr*0.5,cr,cr);
         }
         QPen pen;
