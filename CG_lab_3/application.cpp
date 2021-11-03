@@ -76,8 +76,6 @@ void Application::get_control(control_state cs)
     Tz.data[2][1] = 0;
     Tz.data[2][2] = 1;
 
-
-
     for (size_t i = 0; i < 4; i++)
     {
         Mmatrix tmp(1,3),res(1,3);

@@ -32,12 +32,7 @@ void DrawWindow::paintEvent (QPaintEvent *event)
     s.cw = 0.5*rect().width();
     s.ch = 0.5*rect().height();
 
-
-
-    //qreal xred = 0.5;
     qreal xshift = 0.08;
-    //qreal cw = 0.5*rect().width();
-    //qreal ch = 0.5*rect().height();
 
     qreal xcw = s.cw * xshift;
     qreal xch = s.ch * xshift;
@@ -51,22 +46,10 @@ void DrawWindow::paintEvent (QPaintEvent *event)
     }
     s.ew = (s.cw - cmw) / (num + 5);
     s.eh = (s.ch - cmh) / (num + 5);
-    //qreal ew = s.cw-cmw / (s.num + 2);
 
     qreal c = s.cw>s.ch?s.ch:s.cw;
     qreal cf = 0.03 * c;
 
-    /*
-    qreal cr = 0.015*(cw>ch?ch:cw);
-    qreal crn = cr *0.2;
-    qreal ca = 0.05*(cw>ch?ch:cw);
-    qreal caa = ca * 0.4;
-    int num = 5;
-    qreal cnw = cw / num;
-    qreal cnh = ch / num;
-    qreal can = ca *0.2;
-    qreal cnf = cf * 0.5;
-    */
     font.setPointSize(cf);
     painter.setFont(font);
 
@@ -107,28 +90,7 @@ void DrawWindow::paintEvent (QPaintEvent *event)
                 }
             }
         }
-
     }
-
-
-
-
-    /*
-    QPointF f[4];
-    f[0] = transform(4,-3,8,s);
-    f[1] = transform(-2,5,2,s);
-    f[2] = transform(0,1,-5,s);
-    f[3] = transform(5,-5,5,s);*/
-/*
-    QMessageBox::information(0,"",  "A: ("+ QString::number(f[0].rx()) +";" + QString::number(f[0].ry())+
-                                    "\nB: ("+ QString::number(f[1].rx()) +";" + QString::number(f[1].ry())+
-                                    "\nC: ("+ QString::number(f[2].rx()) +";" + QString::number(f[2].ry())+
-                                    "\nD: ("+ QString::number(f[3].rx()) +";" + QString::number(f[3].ry())+
-                                    "\n ex.x = "+ QString::number(s.ex.rx()) + "   ex.y = " + QString::number(s.ex.ry()));
-*/
-/*    painter.setBrush(QBrush(Qt::CrossPattern));
-    painter.drawPolygon(f,4);*/
-
 }
 
 QPointF DrawWindow::transform(PointF3D a, support_state s)
