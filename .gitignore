@@ -72,4 +72,7 @@ Thumbs.db
 *.exe
 
 *64bit-Debug*
+*64_bit-Debug*
+
+
 
