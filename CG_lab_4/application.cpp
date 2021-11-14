@@ -5,10 +5,10 @@
 Application::Application(int argc, char *argv[])
     : QApplication(argc,argv)
 {
-    m = new MainWindow;
-    m->show();
     d = new DrawWindow;
+    m = new MainWindow;
     d->show();
+    m->show();
     connect(m,SIGNAL(send_control(ControlState*)),
             this,SLOT(recive_control(ControlState*)));
     connect(this,SIGNAL(send_draw(DrawState*)),
@@ -35,7 +35,7 @@ void Application::recive_control(ControlState* c)
         MyLineF tmp;
 
         //блок генерации отрезка
-        srand(QTime::currentTime().msec()*i);
+        srand(QTime::currentTime().msecsSinceStartOfDay()*(i+1));
         tmp.line.setP1(QPointF((rand()%(lim*2)-lim)*0.01,(rand()%(lim*2)-lim)*0.01));
         tmp.line.setP2(QPointF((rand()%(lim*2)-lim)*0.01,(rand()%(lim*2)-lim)*0.01));
 
